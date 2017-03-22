@@ -5,7 +5,7 @@ import multiprocessing
 import itertools
 import os
 
-os.chdir(r'C:\Users\HF_BI\Dropbox (Personal)\Flights\Flight Scraping\Output')
+os.chdir(r'C:\Users\HF_BI\Dropbox (Personal)\Flight Scraping\Output')
 
 dateRange = fn.dateGenerator(settings.startDate, settings.endDate)
 

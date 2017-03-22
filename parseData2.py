@@ -6,7 +6,7 @@ import pandas as pd
 import glob
 import sys
 
-os.chdir(r'C:\Users\HF_BI\Dropbox (Personal)\Flights\Flight Scraping\Output')
+os.chdir(r'C:\Users\HF_BI\Dropbox (Personal)\Flight Scraping\Output')
 
 ''' Get page data from Google Flights'''
 

@@ -23,3 +23,6 @@ def workerFromSydney(depDate, toAirport, fromAirport='SYD', sleepTime=15, maxPri
 
     with open('%s_%s_%s_pageSource.txt' % (depDate, fromAirport, toAirport), 'w+') as file:
         file.write(str(pageSource.encode('utf8')))
+
+def workerToSydney(depDate, fromAirport, toAirport='SYD', sleepTime=15, maxPrice=1000, sortBy='p'):
+    pass
