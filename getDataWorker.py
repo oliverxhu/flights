@@ -1,6 +1,6 @@
 from selenium import webdriver
 import time
-
+import os
 def workerFromSydney(toAirport, depDate, fromAirport='SYD', sleepTime=15, maxPrice=1000, sortBy='p'):
     """Worker function to open pages and write to file"""
     temp = r'https://www.google.com/flights/?' + \
@@ -21,8 +21,8 @@ def workerFromSydney(toAirport, depDate, fromAirport='SYD', sleepTime=15, maxPri
     pageSource = driver.page_source
     driver.quit()
 
-    with open('%s_%s_%s_pageSource.txt' % (depDate, toAirport, fromAirport), 'w+') as file:
-        file.write('Output/' + str(pageSource.encode('utf8')))
+    with open('Output/%s_%s_%s_pageSource.txt' % (depDate, toAirport, fromAirport), 'w+') as file:
+        file.write(str(pageSource.encode('utf8')))
 
 def workerToSydney(depDate, fromAirport, toAirport='SYD', sleepTime=15, maxPrice=1000, sortBy='p'):
     pass
