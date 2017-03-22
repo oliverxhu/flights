@@ -402,3 +402,13 @@ ile c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/glue/Messa
 
 ###!!! [Child][OnMaybeDequeueOne] Error: Channel error: cannot send/recv
 
+1490179146098	geckodriver	INFO	Listening on 127.0.0.1:53970
+1490179148118	mozprofile::profile	INFO	Using profile path C:\Users\HF_BI\AppData\Local\Temp\rust_mozprofile.0Tp3tY0H3p6y
+1490179148149	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox\firefox.exe
+1490179148165	geckodriver::marionette	INFO	Connecting to Marionette on localhost:54033
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs 0.0.0.0 and 0.0.0.0
+1490179151037	Marionette	INFO	Listening on port 54037
+[GFX1]: Potential driver version mismatch ignored due to missing DLLs 0.0.0.0 and 0.0.0.0
+[Child 11740] ###!!! ABORT: Aborting on channel error.: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+13
+[Child 3916] ###!!! ABORT: Aborting on channel error.: file c:/builds/moz2_slave/m-rel-w32-00[Child 15596] ###!!! ABORT: Aborting on channel error.: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056

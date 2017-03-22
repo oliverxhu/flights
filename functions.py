@@ -3,8 +3,13 @@
 def dateGenerator(startDate, endDate):
     """ Create a generator function for the dates to loop through """
     from datetime import timedelta
+    dateList = []
     for ndays in range((endDate - startDate).days):
-        yield startDate + timedelta(days=ndays)
+        dateList.append(str(startDate + timedelta(days=ndays)))
+    return dateList
+
+def airportGenerator(airportList, dateList):
+    return [[airport, date] for airport in airportList for date in dateList]
 
 """ 2) Parsing Functions """
 

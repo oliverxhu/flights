@@ -1,20 +1,18 @@
 import functions as fn
-import settings
+import parameters
 import getDataWorker
 import multiprocessing
 import itertools
-import os
 
-os.chdir(r'C:\Users\HF_BI\Dropbox (Personal)\Flight Scraping\Output')
+dateList = fn.dateGenerator(parameters.startDate, parameters.endDate)
 
-dateRange = fn.dateGenerator(settings.startDate, settings.endDate)
+airportList = parameters.getAirports()
 
-toAirport = 'TYO,OSA,FUK'
+combinations = fn.airportGenerator(airportList, dateList)
 
 if __name__ == '__main__':
-    jobs = []
-    for i in itertools.islice(dateRange, 10):
-        p = multiprocessing.Process(target=getDataWorker.workerFromSydney, args=(i, toAirport))
-        jobs.append(p)
-        p.start()
-    print(jobs)
+    pool = multiprocessing.Pool(processes=10)
+    for comb in combinations:
+        pool.apply_async(getDataWorker.workerFromSydney, args=(comb[0], comb[1], ))
+    pool.close()
+    pool.join()

@@ -1,4 +1,5 @@
 import functions as fn
+import parameters
 from bs4 import BeautifulSoup
 import os
 import itertools as it
@@ -6,7 +7,7 @@ import pandas as pd
 import glob
 import sys
 
-os.chdir(r'C:\Users\HF_BI\Dropbox (Personal)\Flight Scraping\Output')
+os.chdir(parameters.outDir)
 
 ''' Get page data from Google Flights'''
 
