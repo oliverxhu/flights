@@ -1,0 +1,9 @@
+airline,airport,duration,href,price,stopDetails,stops,time
+AirAsia X,SYD-HND,26h 05m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDKUL0D7221-KULHND1D7522;mp=1000;so=p",342,10h 25m in KUL,1 stop,9:25 PM \xe2\x80\x93 10:30 PM+1
+Scoot,SYD-NRT,21h 20m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDSIN0TZ1-SINDMK0TZ292-DMKNRT1TZ292;mp=1000;so=p",445,"SIN, DMK",2 stops,12:30 PM \xe2\x80\x93 8:50 AM+1
+AirAsia X,SYD-KIX,19h 00m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDKUL0D7221-KULKIX1D7536;mp=1000;so=p",497,4h 00m in KUL,1 stop,9:25 PM \xe2\x80\x93 3:25 PM+1
+Jetstar,SYD-NRT,13h 15m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDOOL0JQ402-OOLNRT0JQ11;mp=1000;so=p",562,2h 45m in OOL,1 stop,6:40 AM \xe2\x80\x93 6:55 PM
+"Operated by Singapore Airlines, Also marketed by Virgin Australia",SYD-HND,16h 45m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDSIN0SQ222-SINHND0SQ636;mp=1000;so=p",682,1h 30m in SIN,1 stop,3:00 PM \xe2\x80\x93 6:45 AM+1
+Jetstar,SYD-NRT,13h 35m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDCNS0JQ952-CNSNRT0JQ25;mp=1000;so=p",692,2h 50m in CNS,1 stop,6:00 AM \xe2\x80\x93 6:35 PM
+Philippine Airlines,SYD-HND,14h 25m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDMNL0PR212-MNLHND0PR424;mp=1000;so=p",732,1h 25m in MNL,1 stop,10:30 AM \xe2\x80\x93 11:55 PM
+JAL,SYD-NRT,9h 50m,"https://www.google.com/flights/?curr=AUD#search;f=SYD;t=TYO,OSA,FUK;d=2017-08-26;r=2017-08-30;tt=o;sel=SYDNRT0JL772;mp=1000;so=p",987,,Non-stop,8:15 AM \xe2\x80\x93 5:05 PM
