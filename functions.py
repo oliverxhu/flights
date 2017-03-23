@@ -1,5 +1,6 @@
 """ 1) Scraping Functions """
 
+
 def dateGenerator(startDate, endDate):
     """ Create a generator function for the dates to loop through """
     from datetime import timedelta
@@ -8,12 +9,22 @@ def dateGenerator(startDate, endDate):
         dateList.append(str(startDate + timedelta(days=ndays)))
     return dateList
 
-def airportGenerator(airportList, dateList):
+
+def combinationGenerator(airportList, dateList):
     return [[airport, date] for airport in airportList for date in dateList]
+
+
+def getAirports():
+    """Reads the list of airports from the CSV airports.csv"""
+    import pandas as pd
+    df = pd.read_csv('Airports.csv')
+    return list(df['iata_code'])
+
 
 """ 2) Parsing Functions """
 
 from bs4 import BeautifulSoup
+
 
 def appendList(ls, bsFindObj):
     if bsFindObj is None:
@@ -21,6 +32,7 @@ def appendList(ls, bsFindObj):
     else:
         ls.append(bsFindObj.text)
     return ls
+
 
 def getAllInfo(flightSoup):
     hrefs = []
@@ -30,19 +42,19 @@ def getAllInfo(flightSoup):
     stopDetails = []
     airports = []
     services = []
-    for flight in flightSoup.findAll('a'): # get hrefs
+    for flight in flightSoup.findAll('a'):  # get hrefs
         hrefs.append(flight.get('href'))
-        for price in flight.findChildren()[2]: # get prices
+        for price in flight.findChildren()[2]:  # get prices
             prices.append(price)
-        duration = flight.find('div', class_='OMOBOQD-d-E') # get durations
+        duration = flight.find('div', class_='OMOBOQD-d-E')  # get durations
         durations.append(duration.text)
-        stop = flight.find('div', class_='OMOBOQD-d-Qb') # get stops
+        stop = flight.find('div', class_='OMOBOQD-d-Qb')  # get stops
         stops.append(stop.text)
-        stopDetail = flight.find('div', class_='OMOBOQD-d-Z') # get stop details
+        stopDetail = flight.find('div', class_='OMOBOQD-d-Z')  # get stop details
         appendList(stopDetails, stopDetail)
-        airport = flight.find('div', class_='OMOBOQD-d-Ib') # get airports
+        airport = flight.find('div', class_='OMOBOQD-d-Ib')  # get airports
         airports.append(airport.text)
-        for company in flight.findAll('div', class_='OMOBOQD-d-j'): # get airline
+        for company in flight.findAll('div', class_='OMOBOQD-d-j'):  # get airline
             if len(company.findAll('div')) > 0:
                 for subcompany in company.findAll('div', class_='OMOBOQD-d-k'):
                     content = ""
@@ -54,6 +66,7 @@ def getAllInfo(flightSoup):
             else:
                 services.append(company.text)
     return hrefs, prices, durations, stops, stopDetails, airports, services
+
 
 def getTimeInfo(flightSoup):
     data = []

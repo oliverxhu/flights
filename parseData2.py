@@ -1,13 +1,12 @@
-import functions as fn
-import parameters
-from bs4 import BeautifulSoup
-import os
-import itertools as it
-import pandas as pd
 import glob
-import sys
+import os
 
-os.chdir(parameters.outDir)
+from bs4 import BeautifulSoup
+
+import functions as fn
+import settings
+
+os.chdir(settings.outDir)
 
 ''' Get page data from Google Flights'''
 
@@ -55,4 +54,3 @@ for file in fileList:
     #
     # print(df.head())
     # df.to_csv('Parse/data.csv', index=None)
-
