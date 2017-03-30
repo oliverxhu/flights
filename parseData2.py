@@ -1,16 +1,16 @@
 import glob
-import os
-
+import pandas as pd
 from bs4 import BeautifulSoup
 
 import functions as fn
 import settings
 
-os.chdir(settings.outDir)
-
 ''' Get page data from Google Flights'''
 
-fileList = glob.glob('*pageSource.txt*')
+dfTotal = pd.DataFrame(columns=['price', 'departureDates', 'time', 'duration', 'airport', 'href', 'stops',
+                                'stopDetails', 'airline'])
+
+fileList = glob.glob('Output/*pageSource.txt')
 
 for file in fileList:
 
@@ -40,17 +40,19 @@ for file in fileList:
     depDates = [depDate for i in range(len(hrefs))]
     print(depDates)
     print(hrefs)
-    ''' Returning data in a pandas dataframe'''
-    # df = pd.DataFrame({
-    #                    'price':[int(x[2:]) for x in prices],
-    #                    'departureDates':depDates,
-    #                    'time':times,
-    #                    'duration':durations,
-    #                    'airport':airports,
-    #                    'href':hrefs,
-    #                    'stops':stops,
-    #                    'stopDetails':stopDetails,
-    #                    'airline':services})
-    #
-    # print(df.head())
-    # df.to_csv('Parse/data.csv', index=None)
+    ''' Returning data in a pandas dataframe '''
+    df = pd.DataFrame({
+                       'price': [int(x[2:]) for x in prices],
+                       'departureDates': depDates,
+                       'time': times,
+                       'duration': durations,
+                       'airport': airports,
+                       'href': hrefs,
+                       'stops': stops,
+                       'stopDetails': stopDetails,
+                       'airline': services})
+
+    dfTotal.append(df, ignore_index=True)
+
+dfTotal.to_csv('Output/Parse/parsed.csv', index=None)
+

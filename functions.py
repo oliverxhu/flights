@@ -17,8 +17,8 @@ def combinationGenerator(airportList, dateList):
 def getAirports():
     """Reads the list of airports from the CSV airports.csv"""
     import pandas as pd
-    df = pd.read_csv('Airports.csv')
-    return list(df['iata_code'])
+    df = pd.read_csv('airports_intl_use.csv')
+    return list(df['Code'])
 
 
 """ 2) Parsing Functions """
