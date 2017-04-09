@@ -1,19 +1,22 @@
 import glob
 import pandas as pd
 from bs4 import BeautifulSoup
-
 import functions as fn
 import settings
+import itertools as it
+import os
+# import pdb; pdb.set_trace()
+
+
 
 ''' Get page data from Google Flights'''
 
-dfTotal = pd.DataFrame(columns=['price', 'departureDates', 'time', 'duration', 'airport', 'href', 'stops',
-                                'stopDetails', 'airline'])
+dfTotal = pd.DataFrame(columns=['fromAirport', 'toAirport', 'price', 'departureDates', 'time', 'duration',
+                                'airport', 'href', 'stops', 'stopDetails', 'airline'])
 
-fileList = glob.glob('Output/*pageSource.txt')
+fileList = glob.glob(r'C:\Users\HF_BI\Documents\Oliver\Flight Output\Output\*pageSource*')
 
 for file in fileList:
-
     with open(file, 'r+') as readfile:
         pageSource = readfile.read()
 
@@ -36,13 +39,27 @@ for file in fileList:
     hrefs, prices, durations, stops, stopDetails, airports, services = fn.getAllInfo(flightSoup)
     times = fn.getTimeInfo(flightSoup)
 
-    depDate = file[:10]
+    filename = os.path.split(file)[1]
+    depDate = filename.split('_')[0]
+    fromAirport = filename.split('_')[2]
+    toAirport = filename.split('_')[1]
     depDates = [depDate for i in range(len(hrefs))]
-    print(depDates)
-    print(hrefs)
+    print('depdates: ', depDates)
+    print('fromAirport: ', fromAirport)
+    print('toAirport: ', toAirport)
+    print('hrefs: ', hrefs)
+    print('prices: ', prices)
+    print('durations: ', durations)
+    print('stops: ', stops)
+    print('stopDetails: ', stopDetails)
+    print('airports: ', airports)
+    print('services: ', services)
+
     ''' Returning data in a pandas dataframe '''
     df = pd.DataFrame({
-                       'price': [int(x[2:]) for x in prices],
+                       'fromAirport': [fromAirport] * len(prices),
+                       'toAirport':[toAirport] * len(prices),
+                       'price': [int(x[2:].replace(',', '')) for x in prices],
                        'departureDates': depDates,
                        'time': times,
                        'duration': durations,
@@ -52,7 +69,7 @@ for file in fileList:
                        'stopDetails': stopDetails,
                        'airline': services})
 
-    dfTotal.append(df, ignore_index=True)
+    dfTotal = pd.concat([dfTotal, df])
 
-dfTotal.to_csv('Output/Parse/parsed.csv', index=None)
+dfTotal.to_csv(r'C:\Users\HF_BI\Documents\Oliver\Flight Output\Output\Parsed\Details.csv', index=None)
 
